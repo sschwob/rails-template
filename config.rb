@@ -51,105 +51,105 @@ RUBY
 
 environment configs
 
-# Assets
-########################################
-run "rm -rf app/assets/stylesheets"
-run "rm -rf vendor"
+# # Assets
+# ########################################
+# run "rm -rf app/assets/stylesheets"
+# run "rm -rf vendor"
 
-file "app/assets/stylesheets/application.scss", <<~TXT
-  // Graphical variables
-  @import "config/fonts";
-  @import "config/colors";
-  @import "config/bootstrap_variables";
-  // External libraries
-  @import "bootstrap";
-  @import "font-awesome";
-  // Your CSS partials
-  @import "components/index";
-TXT
+# file "app/assets/stylesheets/application.scss", <<~TXT
+#   // Graphical variables
+#   @import "config/fonts";
+#   @import "config/colors";
+#   @import "config/bootstrap_variables";
+#   // External libraries
+#   @import "bootstrap";
+#   @import "font-awesome";
+#   // Your CSS partials
+#   @import "components/index";
+# TXT
 
-file "app/assets/stylesheets/components/_index.scss", <<~TXT
-  // Import your components CSS files here.
-  @import "form_legend_clear";
-TXT
+# file "app/assets/stylesheets/components/_index.scss", <<~TXT
+#   // Import your components CSS files here.
+#   @import "form_legend_clear";
+# TXT
 
-file "app/assets/stylesheets/components/_form_legend_clear.scss", <<~TXT
-  // In bootstrap 5 legend floats left and requires the following element
-  // to be cleared. In a radio button or checkbox group the element after
-  // the legend will be the automatically generated hidden input; the fix
-  // in https://github.com/twbs/bootstrap/pull/30345 applies to the hidden
-  // input and has no visual effect. Here we try to fix matters by
-  // applying the clear to the div wrapping the first following radio button
-  // or checkbox.
-  legend ~ div.form-check:first-of-type {
-    clear: left;
-  }
-TXT
+# file "app/assets/stylesheets/components/_form_legend_clear.scss", <<~TXT
+#   // In bootstrap 5 legend floats left and requires the following element
+#   // to be cleared. In a radio button or checkbox group the element after
+#   // the legend will be the automatically generated hidden input; the fix
+#   // in https://github.com/twbs/bootstrap/pull/30345 applies to the hidden
+#   // input and has no visual effect. Here we try to fix matters by
+#   // applying the clear to the div wrapping the first following radio button
+#   // or checkbox.
+#   legend ~ div.form-check:first-of-type {
+#     clear: left;
+#   }
+# TXT
 
-file "app/assets/stylesheets/config/_fonts.scss", <<~TXT
-  // Import Google fonts
-  @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-  // Define fonts for body and headers
-  $body-font: "Work Sans", "Helvetica", "sans-serif";
-  $headers-font: "Nunito", "Helvetica", "sans-serif";
-  // To use a font file (.woff) uncomment following lines
-  // @font-face {
-  //   font-family: "Font Name";
-  //   src: font-url('FontFile.eot');
-  //   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-  //        font-url('FontFile.woff') format('woff'),
-  //        font-url('FontFile.ttf') format('truetype')
-  // }
-  // $my-font: "Font Name";
-TXT
+# file "app/assets/stylesheets/config/_fonts.scss", <<~TXT
+#   // Import Google fonts
+#   @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+#   // Define fonts for body and headers
+#   $body-font: "Work Sans", "Helvetica", "sans-serif";
+#   $headers-font: "Nunito", "Helvetica", "sans-serif";
+#   // To use a font file (.woff) uncomment following lines
+#   // @font-face {
+#   //   font-family: "Font Name";
+#   //   src: font-url('FontFile.eot');
+#   //   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
+#   //        font-url('FontFile.woff') format('woff'),
+#   //        font-url('FontFile.ttf') format('truetype')
+#   // }
+#   // $my-font: "Font Name";
+# TXT
 
-file "app/assets/stylesheets/config/_colors.scss", <<~TXT
-  // Define variables for your color scheme
-  // For example:
-  $red: #FD1015;
-  $blue: #0D6EFD;
-  $yellow: #FFC65A;
-  $orange: #E67E22;
-  $green: #1EDD88;
-  $gray: #0E0000;
-  $light-gray: #F4F4F4;
-TXT
+# file "app/assets/stylesheets/config/_colors.scss", <<~TXT
+#   // Define variables for your color scheme
+#   // For example:
+#   $red: #FD1015;
+#   $blue: #0D6EFD;
+#   $yellow: #FFC65A;
+#   $orange: #E67E22;
+#   $green: #1EDD88;
+#   $gray: #0E0000;
+#   $light-gray: #F4F4F4;
+# TXT
 
-file "app/assets/stylesheets/config/_bootstrap_variables.scss", <<~TXT
-  // This is where you override default Bootstrap variables
-  // 1. All Bootstrap variables are here => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
-  // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
-  // 3. You can override them below!
-  // General style
-  $font-family-sans-serif:  $body-font;
-  $headings-font-family:    $headers-font;
-  $body-bg:                 $light-gray;
-  $font-size-base: 1rem;
-  // Colors
-  $body-color: $gray;
-  $primary:    $blue;
-  $success:    $green;
-  $info:       $yellow;
-  $danger:     $red;
-  $warning:    $orange;
-  // Buttons & inputs' radius
-  $border-radius:    2px;
-  $border-radius-lg: 2px;
-  $border-radius-sm: 2px;
-  // Override other variables below!
-TXT
+# file "app/assets/stylesheets/config/_bootstrap_variables.scss", <<~TXT
+#   // This is where you override default Bootstrap variables
+#   // 1. All Bootstrap variables are here => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+#   // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
+#   // 3. You can override them below!
+#   // General style
+#   $font-family-sans-serif:  $body-font;
+#   $headings-font-family:    $headers-font;
+#   $body-bg:                 $light-gray;
+#   $font-size-base: 1rem;
+#   // Colors
+#   $body-color: $gray;
+#   $primary:    $blue;
+#   $success:    $green;
+#   $info:       $yellow;
+#   $danger:     $red;
+#   $warning:    $orange;
+#   // Buttons & inputs' radius
+#   $border-radius:    2px;
+#   $border-radius-lg: 2px;
+#   $border-radius-sm: 2px;
+#   // Override other variables below!
+# TXT
 
-inject_into_file "config/initializers/assets.rb", after: "# Rails.application.config.assets.paths << Emoji.images_path" do
-  <<~RUBY
-    Rails.application.config.assets.paths << Rails.root.join("node_modules")
-  RUBY
-end
+# inject_into_file "config/initializers/assets.rb", after: "# Rails.application.config.assets.paths << Emoji.images_path" do
+#   <<~RUBY
+#     Rails.application.config.assets.paths << Rails.root.join("node_modules")
+#   RUBY
+# end
 
-inject_into_file "config/initializers/assets.rb", after: "# Rails.application.config.assets.precompile += %w( admin.js admin.css )" do
-  <<~RUBY
-    Rails.application.config.assets.precompile += %w( application.scss )
-  RUBY
-end
+# inject_into_file "config/initializers/assets.rb", after: "# Rails.application.config.assets.precompile += %w( admin.js admin.css )" do
+#   <<~RUBY
+#     Rails.application.config.assets.precompile += %w( application.scss )
+#   RUBY
+# end
 
 # Layout
 ########################################
