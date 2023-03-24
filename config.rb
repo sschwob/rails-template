@@ -26,12 +26,6 @@ inject_into_file "Gemfile", after: 'gem "debug", platforms: %i[ mri mingw x64_mi
 RUBY
 end
 
-gem_group :test do
-    gem "capybara"
-    gem "selenium-webdriver"
-    gem "webdrivers"
-end
-
 gsub_file("Gemfile", '# gem "sassc-rails"', 'gem "sassc-rails"')
 
 # Configs
