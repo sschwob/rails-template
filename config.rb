@@ -41,10 +41,12 @@ run "rm -r tmp/cache/assets"
 run "curl -L https://raw.githubusercontent.com/sschwob/rails-template/main/config/fr.yml > config/locales/fr.yml"
 
 configs = <<~RUBY
+
   config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
   config.i18n.default_locale = :fr
   config.time_zone = "Paris"
   config.active_record.default_timezone = :local
+
 RUBY
 
 environment configs
@@ -235,7 +237,19 @@ after_bundle do
   ########################################
   generate("devise:install")
   generate("devise:i18n:views")
+  run "curl -L https://raw.githubusercontent.com/sschwob/rails-template/main/config/devise.fr.yml > config/locales/devise.fr.yml"
 
+  gsub_file(
+    "app/views/devise/registrations/new.html.erb",
+    "<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>",
+    "<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>"
+  )
+  gsub_file(
+    "app/views/devise/sessions/new.html.erb",
+    "<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>",
+    "<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>"
+  )
+  
   # Application controller
   ########################################
   run "rm app/controllers/application_controller.rb"
