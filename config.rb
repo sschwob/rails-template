@@ -295,17 +295,17 @@ after_bundle do
 RUBY
   end
 
-  # Bootstrap / Popper
-  ########################################
-  append_file "config/importmap.rb", <<~RUBY
-    pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.0/dist/esm/index.js"
-    pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.2.0/dist/js/bootstrap.esm.js"
-  RUBY
+  # # Bootstrap / Popper
+  # ########################################
+  # append_file "config/importmap.rb", <<~RUBY
+  #   pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.0/dist/esm/index.js"
+  #   pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.2.0/dist/js/bootstrap.esm.js"
+  # RUBY
 
-  append_file "app/javascript/application.js", <<~JS
-    import "@popperjs/core"
-    import * as bootstrap from "bootstrap"
-  JS
+  # append_file "app/javascript/application.js", <<~JS
+  #   import "@popperjs/core"
+  #   import * as bootstrap from "bootstrap"
+  # JS
 
   # Dotenv
   ########################################
