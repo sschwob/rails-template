@@ -11,11 +11,13 @@ inject_into_file "Gemfile", before: "group :development, :test do" do
     gem 'bootstrap', '~> 5.2.2'
     gem 'devise'
     gem 'devise-i18n'
+
   RUBY
 end
 
 inject_into_file "Gemfile", after: 'gem "debug", platforms: %i[ mri mingw x64_mingw ]' do
 <<-RUBY
+
     gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
     gem 'byebug', '~> 9.0', '>= 9.0.5'
     gem "rspec-rails"
