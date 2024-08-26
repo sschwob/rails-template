@@ -19,7 +19,6 @@ inject_into_file "Gemfile", after: 'gem "rubocop-rails-omakase", require: false'
 <<-RUBY
 
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
-  gem 'byebug', '~> 9.0', '>= 9.0.5'
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "faker"
