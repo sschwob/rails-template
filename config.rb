@@ -26,8 +26,6 @@ inject_into_file "Gemfile", after: 'gem "debug", platforms: %i[ mri mingw x64_mi
 RUBY
 end
 
-gsub_file("Gemfile", '# gem "sassc-rails"', 'gem "sassc-rails"')
-
 # Configs
 ########################################
 environment "config.sass.inline_source_maps = true", env: 'development'
