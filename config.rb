@@ -15,7 +15,7 @@ inject_into_file "Gemfile", before: "group :development, :test do" do
   RUBY
 end
 
-inject_into_file "Gemfile", after: 'gem "debug", platforms: %i[ mri mingw x64_mingw ]' do
+inject_into_file "Gemfile", after: 'gem "rubocop-rails-omakase", require: false' do
 <<-RUBY
 
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
