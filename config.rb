@@ -29,7 +29,6 @@ end
 # Configs
 ########################################
 environment "config.sass.inline_source_maps = true", env: 'development'
-run "rm -r tmp/cache/assets"
 run "curl -L https://raw.githubusercontent.com/sschwob/rails-template/main/config/fr.yml > config/locales/fr.yml"
 
 configs = <<~RUBY
